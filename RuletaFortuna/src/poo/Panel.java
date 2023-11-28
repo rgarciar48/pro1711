@@ -1,5 +1,7 @@
 package poo;
 
+import java.util.Scanner;
+
 public class Panel {
 	
 	String pista;
@@ -7,8 +9,8 @@ public class Panel {
 	char [] estadoCasillas;
 	
 	Panel(String p,String texto){
-		pista=p;
-		textoAdivinar=texto;
+		pista=p.toUpperCase();
+		textoAdivinar=texto.toUpperCase();
 		
 		estadoCasillas=textoAdivinar.toCharArray();
 		//Sustituimos los caracteres
@@ -29,6 +31,10 @@ public class Panel {
 	
 	public int comprobarLetra(char letra){
 		int aciertos=0;
+		//Me aseguro de que la letra esta en mayúscula
+		
+		letra=Character.toUpperCase(letra);
+
 		for(int i=0;i<textoAdivinar.length();i++) {
 			if(textoAdivinar.charAt(i)==letra) {
 				estadoCasillas[i]=letra;
@@ -36,10 +42,5 @@ public class Panel {
 			}
 		}
 		return aciertos;
-		
-		
-		
-		
 	}
-	
 }
